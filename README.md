@@ -13,6 +13,7 @@ Centralised Google Cloud Security Command Center (SCC) finding triage for projec
 ```text
 config/                      Ownership mappings and scoring weights (YAML)
 services/triage_processor/   Cloud Run service (FastAPI) + tests
+frontend/                    React 19 + Vite UI (plain CSS, "Chocolate truffle" palette)
 bigquery/                    Table DDL and the daily-metrics scheduled query
 infra/terraform/             Pub/Sub, DLQ, SCC export, Firestore, BigQuery, IAM, Cloud Run
 ```
@@ -34,6 +35,17 @@ STORE=memory RUN_SERVER=1 uvicorn app.main:app --reload
 ```
 
 Post a sample SCC notification (wrapped in a Pub/Sub push envelope) to `/pubsub/push`, then `GET /api/v1/findings`.
+
+## Frontend
+
+```bash
+cd frontend && npm install
+npm run dev      # http://localhost:5173, proxies /api to localhost:8080
+npm run build    # outputs frontend/dist; the Dockerfile builds it and FastAPI serves it
+```
+
+Pages: Dashboard, Findings (filters, SLA view), Finding detail (score reasons, state/assignee/notes, audit trail), How to use. Styling is one file, `frontend/src/styles.css`, built on CSS tokens (light and dark). Status always pairs colour with an icon and a word.
+The UI has no login of its own: protect the Cloud Run service with IAM or IAP.
 
 ## Deploy
 

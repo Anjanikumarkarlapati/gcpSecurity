@@ -6,3 +6,5 @@ __pycache__/
 *.tfstate*
 *.tfvars
 !example.tfvars
+node_modules/
+frontend/dist/

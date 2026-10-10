@@ -131,6 +131,13 @@ def build_app(processor: Processor | None = None) -> FastAPI:
                if c.workflow_state not in closed and c.due_date < now]
         return sorted(out, key=lambda d: d["due_date"])
 
+    # Serve the built React UI (HashRouter, so no SPA fallback is needed).
+    from pathlib import Path
+    from fastapi.staticfiles import StaticFiles
+    ui = Path(os.environ.get("FRONTEND_DIR", "/srv/frontend"))
+    if ui.is_dir():
+        app.mount("/", StaticFiles(directory=ui, html=True), name="ui")
+
     return app
 
 
