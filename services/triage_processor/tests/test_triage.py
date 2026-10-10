@@ -193,3 +193,14 @@ def test_api_flow(client):
 def test_sla_breaches_report(client, processor):
     uid = client.post("/pubsub/push", json=envelope(make_payload(event_time="2020-01-01T00:00:00Z"))).json()["finding_uid"]
     assert [b["finding_uid"] for b in client.get("/api/v1/reports/sla-breaches").json()] == [uid]
+
+
+# ---- sample data ----
+def test_sample_data_exercises_all_paths(processor):
+    from app.sample import load_into
+    actions = [r.action for r in load_into(processor)]
+    assert len(actions) == 10
+    assert {"created", "severity_increased", "pending_verification"} <= set(actions)
+    cases = processor.store.list()
+    assert any(c.owner_team == "SECURITY_REVIEW" for c in cases)
+    assert {c.calculated_priority for c in cases} >= {"P1", "P2", "P3", "P4"}

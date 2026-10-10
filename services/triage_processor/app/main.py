@@ -29,6 +29,10 @@ def build_app(processor: Processor | None = None) -> FastAPI:
             sink = BigQuerySink(os.environ["BQ_DATASET"])
         processor = Processor(store, notifier_mod.from_env(), sink)
 
+    if os.environ.get("SEED_SAMPLE") == "1":
+        from .sample import load_into
+        load_into(processor)
+
     app = FastAPI(title="SCC Triage Hub")
     store = processor.store
 

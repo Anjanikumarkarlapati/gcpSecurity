@@ -14,6 +14,7 @@ COPY services/triage_processor/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY services/triage_processor/app ./app
 COPY config ./config
+COPY services/triage_processor/sample_data ./sample_data
 COPY --from=ui /ui/dist ./frontend
 RUN useradd -r app
 USER app

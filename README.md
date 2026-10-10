@@ -34,7 +34,14 @@ cd services/triage_processor
 STORE=memory RUN_SERVER=1 uvicorn app.main:app --reload
 ```
 
-Post a sample SCC notification (wrapped in a Pub/Sub push envelope) to `/pubsub/push`, then `GET /api/v1/findings`.
+Sample data (10 realistic findings covering new, repeat, severity increase, inactive/pending verification, past-SLA and unowned cases):
+
+```bash
+SEED_SAMPLE=1 STORE=memory RUN_SERVER=1 uvicorn app.main:app   # load on startup
+python scripts/seed.py http://localhost:8080                   # or post to a running server
+```
+
+Or post a sample SCC notification (wrapped in a Pub/Sub push envelope) to `/pubsub/push`, then `GET /api/v1/findings`.
 
 ## Frontend
 

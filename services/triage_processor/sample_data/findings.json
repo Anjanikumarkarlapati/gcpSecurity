@@ -1,0 +1,178 @@
+[
+  {
+    "days_ago": 40,
+    "payload": {
+      "finding": {
+        "name": "organizations/123456789/sources/987654/findings/sa01",
+        "category": "PUBLIC_BUCKET_ACL",
+        "severity": "HIGH",
+        "state": "ACTIVE",
+        "resourceName": "//storage.googleapis.com/buckets/legacy-exports"
+      },
+      "resource": {
+        "projectDisplayName": "t051-production",
+        "type": "google.cloud.storage.Bucket",
+        "labels": {
+          "data-classification": "sensitive"
+        }
+      }
+    }
+  },
+  {
+    "days_ago": 12,
+    "payload": {
+      "finding": {
+        "name": "organizations/123456789/sources/987654/findings/sa02",
+        "category": "PUBLIC_IP_ADDRESS",
+        "severity": "MEDIUM",
+        "state": "ACTIVE",
+        "resourceName": "//compute.googleapis.com/instances/web-1"
+      },
+      "resource": {
+        "projectDisplayName": "t151-staging",
+        "type": "google.cloud.compute.Instance",
+        "labels": {}
+      }
+    }
+  },
+  {
+    "days_ago": 10,
+    "payload": {
+      "finding": {
+        "name": "organizations/123456789/sources/987654/findings/sa03",
+        "category": "PUBLIC_BUCKET_ACL",
+        "severity": "LOW",
+        "state": "ACTIVE",
+        "resourceName": "//storage.googleapis.com/buckets/scratch"
+      },
+      "resource": {
+        "projectDisplayName": "t251-dev",
+        "type": "google.cloud.storage.Bucket",
+        "labels": {}
+      }
+    }
+  },
+  {
+    "days_ago": 6,
+    "payload": {
+      "finding": {
+        "name": "organizations/123456789/sources/987654/findings/sa02",
+        "category": "PUBLIC_IP_ADDRESS",
+        "severity": "MEDIUM",
+        "state": "INACTIVE",
+        "resourceName": "//compute.googleapis.com/instances/web-1"
+      },
+      "resource": {
+        "projectDisplayName": "t151-staging",
+        "type": "google.cloud.compute.Instance",
+        "labels": {}
+      }
+    }
+  },
+  {
+    "days_ago": 5,
+    "payload": {
+      "finding": {
+        "name": "organizations/123456789/sources/987654/findings/sa04",
+        "category": "PUBLIC_SQL_INSTANCE",
+        "severity": "MEDIUM",
+        "state": "ACTIVE",
+        "resourceName": "//sqladmin.googleapis.com/instances/orders-dev"
+      },
+      "resource": {
+        "projectDisplayName": "t251-dev",
+        "type": "google.cloud.sql.Instance",
+        "labels": {}
+      }
+    }
+  },
+  {
+    "days_ago": 3,
+    "payload": {
+      "finding": {
+        "name": "organizations/123456789/sources/987654/findings/sa05",
+        "category": "OPEN_FIREWALL",
+        "severity": "CRITICAL",
+        "state": "ACTIVE",
+        "resourceName": "//compute.googleapis.com/firewalls/allow-all"
+      },
+      "resource": {
+        "projectDisplayName": "t151-staging",
+        "type": "google.cloud.compute.Firewall",
+        "labels": {}
+      }
+    }
+  },
+  {
+    "days_ago": 2,
+    "payload": {
+      "finding": {
+        "name": "organizations/123456789/sources/987654/findings/sa03",
+        "category": "PUBLIC_BUCKET_ACL",
+        "severity": "HIGH",
+        "state": "ACTIVE",
+        "resourceName": "//storage.googleapis.com/buckets/scratch"
+      },
+      "resource": {
+        "projectDisplayName": "t251-dev",
+        "type": "google.cloud.storage.Bucket",
+        "labels": {}
+      }
+    }
+  },
+  {
+    "days_ago": 1,
+    "payload": {
+      "finding": {
+        "name": "organizations/123456789/sources/987654/findings/sa06",
+        "category": "WEAK_SSL_POLICY",
+        "severity": "LOW",
+        "state": "ACTIVE",
+        "resourceName": "//compute.googleapis.com/sslPolicies/legacy"
+      },
+      "resource": {
+        "projectDisplayName": "unmapped-project",
+        "type": "google.cloud.compute.SslPolicy",
+        "labels": {}
+      }
+    }
+  },
+  {
+    "days_ago": 0,
+    "payload": {
+      "finding": {
+        "name": "organizations/123456789/sources/987654/findings/sa07",
+        "category": "PUBLIC_BUCKET_ACL",
+        "severity": "HIGH",
+        "state": "ACTIVE",
+        "resourceName": "//storage.googleapis.com/buckets/customer-uploads"
+      },
+      "resource": {
+        "projectDisplayName": "t051-production",
+        "type": "google.cloud.storage.Bucket",
+        "labels": {
+          "data-classification": "sensitive"
+        }
+      }
+    }
+  },
+  {
+    "days_ago": 0,
+    "payload": {
+      "finding": {
+        "name": "organizations/123456789/sources/987654/findings/sa08",
+        "category": "OPEN_FIREWALL",
+        "severity": "HIGH",
+        "state": "ACTIVE",
+        "resourceName": "//compute.googleapis.com/firewalls/ssh-any"
+      },
+      "resource": {
+        "projectDisplayName": "t051-production",
+        "type": "google.cloud.compute.Firewall",
+        "labels": {
+          "criticality": "high"
+        }
+      }
+    }
+  }
+]
