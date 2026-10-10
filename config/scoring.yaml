@@ -1,0 +1,25 @@
+severity_points:
+  CRITICAL: 40
+  HIGH: 30
+  MEDIUM: 20
+  LOW: 10
+  SEVERITY_UNSPECIFIED: 0
+exposure_public: 20
+sensitive_data: 15
+criticality_high: 15       # applied when environment is production or criticality label is high
+age_per_7_days: 1          # capped at age_max
+age_max: 5
+recurrence_per_repeat: 1   # capped at recurrence_max
+recurrence_max: 5
+
+priority_thresholds:       # minimum score
+  P1: 80
+  P2: 60
+  P3: 35
+  P4: 0
+
+sla_business_days:         # None = next review cycle (14 calendar days)
+  P1: 0                    # same day
+  P2: 3
+  P3: 7
+  P4: 14

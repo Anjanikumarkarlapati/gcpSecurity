@@ -1,0 +1,37 @@
+# Ownership rules, evaluated top to bottom; first match wins.
+# Match keys: project, folder, label (key:value), resource_type.
+default_team: SECURITY_REVIEW   # routed to the security-review queue
+
+team_mappings:
+  - project: t051-production
+    team: T051
+    environment: production
+  - project: t151-staging
+    team: T151
+    environment: staging
+  - project: t251-dev
+    team: T251
+    environment: development
+  - label: "owner:t051"
+    team: T051
+  - label: "owner:t151"
+    team: T151
+  - label: "owner:t251"
+    team: T251
+
+# Environment inferred from labels/project name when a mapping gives none.
+environment_labels: [environment, env]
+
+# Resource flags used by enrichment.
+sensitive_labels:
+  - "data-classification:sensitive"
+  - "data-classification:confidential"
+criticality_labels:
+  - "criticality:high"
+public_finding_categories:
+  - PUBLIC_BUCKET_ACL
+  - PUBLIC_IP_ADDRESS
+  - OPEN_FIREWALL
+  - PUBLIC_SQL_INSTANCE
+  - FIREWALL_RULE_ALLOWS_ALL
+  - OVER_PRIVILEGED_ACCOUNT_PUBLIC
